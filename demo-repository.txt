@@ -43,6 +43,7 @@ index 366c425 100644
 +++ b/demo-repository
 ...
 
+6 查看文件中所有内容：cat <file>
 
 
 
