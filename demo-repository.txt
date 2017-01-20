@@ -18,7 +18,7 @@ create mode 100644 demo-repository.txt
 *为啥需要add,commit的原因：commit可以一次提交多个文件，而且add添加一次是添加之前的文件，当添加后再次修改又需要添加一次
 
 4 查看当前仓库的状态：git status
-*两种情况：
+*三种情况：
 ====1
 *文件修改但仓库中没有添加/提交时：
 此时提示在主分支master上变动没有被保存到提交的文档里，可以使用git add <file>这个命令去更新到下一个将提交的版本里，也可以使用
@@ -34,6 +34,13 @@ Change not staged for commit:
 On branch master
 Change to be commited:
 (use "git reset HEAD <file> ..." to unstage)
+====3
+*在工作区新建一个文件，没有放入暂存区stage时：
+此时提示没有跟踪到文件，使用git add <file>放在之后会提交的暂存区内
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+
+
 
 5 查看没有提交的文件改动部分：git diff
 *此命令会把没有添加到仓库的文件改动部分显示在控制台，-表示之前版本，+表示更改之后变动
@@ -45,8 +52,29 @@ index 366c425 100644
 
 6 查看文件中所有内容：cat <file>
 
+7 查看历史版本：git log
+*commit：版本号 Author：github账号 Date：日期
+*查看精简信息：git log --pretty=oneline
 
+8 回退上一版本：git reset --hard HEAD^
+*HEAD是一个指针 指向当前版本 HEAD^^上两个版本 HEAD~10上10个版本 也可以指定回退到哪一个版本号
 
+9 记录操作的命令：git reflog
+*前面是版本号 后面是指向 最后是操作命令
 
+**
+工作区和暂存区
+工作区：working directory
+git init的那个目录就是工作区
+版本库：repository
+工作区有一个隐藏目录.git 是Git的版本库
+在版本库里有暂存区：stage(栈),git会自动的创建第一个分区：master，指向master的指针为HEAD
+**
+
+**
+文件执行概念
+git add 把文件添加到暂存区stage
+git commit 把暂存区的内容提交到当前分支
+即需要提交的文件放入暂存区，一次性提交暂存区的所有修改
 
 
