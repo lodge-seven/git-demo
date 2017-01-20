@@ -1,0 +1,12 @@
+
+git 分布式版本控制
+
+1 初始化版本库：git init
+*此时会提示版本库初始化为空：initialize empty git repository
+*初始化完成，在上层目录多出一个.git的文件，它是git控制的关键，查看它需要命令：ls -ah
+
+2 把此文件demo-repository添加到git的版本库中(仓库)：git add demo-repository.txt
+*此时没有提示，说明添加成功
+*可能报错文件匹配不到：fatal:pathspec 'xx' did not match any files
+	**解决：检查文件是否存在指向的当前目录中，查看当前目录命令：pwd
+
