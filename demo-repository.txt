@@ -30,7 +30,7 @@ Change not staged for commit:
 *会提示你添加到已经存在的最新版本里去，使用命令：git add或者git commit -a
 ====2
 *添加到仓库中时：
-此时提示改变会被提交，使用git reset HEAD <file> 把暂存区的修改撤销掉
+此时提示改变会被提交，使用git reset HEAD <file> 把暂存区的修改撤销掉，把暂存区的内容回退到工作区(暂存区清空)
 On branch master
 Change to be commited:
 (use "git reset HEAD <file> ..." to unstage)
@@ -56,8 +56,9 @@ index 366c425 100644
 *查看精简信息：git log --pretty=oneline
 
 8.1 回退上一版本：git reset --hard HEAD^
-8.2 把暂存区的内容回退到工作区(暂存区清空)：git reset HEAD <file>
 *HEAD是一个指针 指向当前版本 HEAD^^上两个版本 HEAD~10上10个版本 也可以指定回退到哪一个版本号
+8.2 把暂存区的内容回退到工作区(暂存区清空)：git reset HEAD <file>
+*add之后，内容存到暂存区，要把暂存区清空就需要这个命令
 
 9 记录操作的命令：git reflog
 *前面是版本号 后面是指向 最后是操作命令
@@ -88,7 +89,6 @@ git add 把文件添加到暂存区stage
 git commit 把暂存区的内容提交到当前分支
 即需要提交的文件放入暂存区，一次性提交暂存区的所有修改,提交后暂存区的内容将会清空
 这个是没有放到暂存区的哦（但并不会在提交之后就消失咯 强行加一段话 用vi demo-repository)
-
 
 
 
