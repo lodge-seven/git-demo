@@ -3,7 +3,7 @@ git 分布式版本控制
 
 1 初始化版本库：git init
 *此时会提示版本库初始化为空：initialize empty git repository
-*初始化完成，在上层目录多出一个.git的文件，它是git控制的关键，查看它需要命令：ls -ah
+*初始化完成，在上层目录多出一个.git的文件，它是git控制的关键，也是git的版本库，查看它需要命令：ls -ah
 
 2 把此文件demo-repository添加给git的版本库中(仓库)：git add demo-repository.txt
 *此时没有提示，说明添加成功
@@ -76,6 +76,9 @@ index 366c425 100644
 12 删除最新版本中的某个文件：rm <file>
 *此时是没有提示的，因为版本库.git中还保存有此版本，所以可以使用命令：git checkout -- <file>来撤销到上一版本
 
+13 要从版本库中删除某个文件：git rm <file>
+*版本中就没有这个文件了，此时提交就不会报错
+
 **
 工作区和暂存区
 工作区：working directory
@@ -93,7 +96,11 @@ git commit 把暂存区的内容提交到当前分支
 这个是没有放到暂存区的哦（但并不会在提交之后就消失咯 强行加一段话 用vi demo-repository)
 
 
-
+**
+文件执行顺序
+1 进入文件修改之后，若没有添加到暂存区，查看状态会发现提示你要不添加暂存区要不撤销到上一版本或者是回退到上一次暂存区的状态(git checkout -- <file>)
+2 添加到暂存区后，查看状态,提示将会提交，可以选择git reset HEAD <file> 取消/清空暂存区。
+3 查看暂存区与工作区的不同：git diff，查看版本库与工作区的不同：git diff HEAD -- <file>
 
 
 
