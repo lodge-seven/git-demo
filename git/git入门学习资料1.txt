@@ -1,0 +1,45 @@
+龙77学习git心得
+
+1 git说明：
+    git是一个版本控制系统，用的是分布式（版本库分布，对本机文件通过交换更新，不主动影响其余版本库。可有特定版本库作为中央服务器用来规划本机版本是否为各个版本库最新/公认版本，避免多重交换更新）。
+    不需联网，安全性高
+    * repository 仓库
+
+2 使用工具：
+    git bash，Windows下的命令行工具
+    git Gui，图形化界面
+
+3 入门资料（命令）:
+    ** 1 本地创建并初始化新git仓库/版本库
+   
+    进入想要创建版本库的目录 cd F:\node包\
+
+    创建一个新文件夹 mkdir new_folder
+
+    清空窗口命令 clear 
+
+    首次进要先初始化git仓库 在目录下生成.git文件夹 git init
+    * 此时提示 Initialized empty Git repository in F:/node包/.git/
+    * 初始化完成 首页多出一个.git文件夹（如果没有找到可通过 ls -ah 查看）
+    * 这个node包文件夹下的所有文件都可以放入仓库中了 但现在git仓库是空的
+
+    ** 2 本地暂存与取消
+
+    仓库暂存/添加所有文件 git add .
+
+    仓库暂存/添加指定文件 git add <file>
+    * 暂存区（stage/index）：git自动创建分支master，指向master的指针HEAD
+    * 之前没有被添加到暂存区的文件/文件夹，状态为未记录（Untracked files: 文件/文件夹）
+    * 在暂存区，之后被修改过的文件，状态为修改记录（modified: 修改文件）
+
+    仓库暂存区取消所添加的async文件夹内所有文件 git rm --cached async/\*
+
+    仓库暂存区全部清除 git rm --cached -r . -f
+
+    仓库暂存区取消指定文件 git rm --cached <file>
+    * rm 删除文件 --cached 暂存区
+
+    ** 3 提交文件到当前分支
+
+    提交文件到当前分支 git commit -m "标题"
+    
